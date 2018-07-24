@@ -1,5 +1,6 @@
 /*
-js lib v1.1.20180720
+js lib v1.1.20180724
++20180724 util中msg新增return  
 */
 
 //按钮LOADING，使用$('#obj').postLoading('url',{data:data},function(data){...});
@@ -43,8 +44,10 @@ var util={
 	//提示
 	msgShow:function(o){
 		util.msgShowEX(o,o?'操作成功':'操作失败',1);
+		return o;
 	},
 	msgShowEX:function(o,s,m){
 		$(document.body).append('<div id="_msg" style="position:absolute;background:'+(o?'green':'#c30')+';top:'+$(window).scrollTop()+'px;left:45%;color:#fff;font-size:14px;padding:5px 8px;z-index:99999">'+s+'</div>');setTimeout("$('#_msg').remove();",m*1000); 
+		return o;
 	}
 };
